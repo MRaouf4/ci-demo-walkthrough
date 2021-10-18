@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.233
+FROM jenkins/jenkins:2.316
 
 # install jenkins plugins
 COPY --chown=jenkins:jenkins ./docker/jenkins/plugins /usr/share/jenkins/plugins
