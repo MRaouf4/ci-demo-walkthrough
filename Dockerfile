@@ -21,12 +21,12 @@ USER root
 # this will be directory where we keep ssh keys for git authentication
 RUN mkdir /usr/share/jenkins/ssh
 # generate public/private keys for git authentication
-RUN ssh-keygen -t rsa -b 4096 -C "jenkins@apigee.com" -f /usr/share/jenkins/ssh/id_rsa -q -P ""
+RUN ssh-keygen -t rsa -b 4096 -C "jenkins@apigee.com" -f /usr/share/jenkins/ssh/id_rsa -q -N ""
 # you get "Host key verification failed" if you don't have known_hosts
 # file in place or if file is empty
 # add github to known_hosts
 RUN ssh-keyscan -t ssh-rsa github.com >> /usr/share/jenkins/ssh/known_hosts
-RUN ssh-keyscan -t ssh-rsa gitlab.apigee.com >> /usr/share/jenkins/ssh/known_hosts
+#RUN ssh-keyscan -t ssh-rsa gitlab.apigee.com >> /usr/share/jenkins/ssh/known_hosts
 # copy ssh key cat utility to image
 COPY --chown=jenkins:jenkins docker/ssh/keycat.sh /usr/share/jenkins/ssh/keycat.sh
 RUN chmod +x /usr/share/jenkins/ssh/keycat.sh
