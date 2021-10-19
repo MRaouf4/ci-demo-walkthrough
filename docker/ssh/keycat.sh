@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-echo
-echo install this public key in your git server as a deploy key:
-echo
-cat /usr/share/jenkins/ssh/id_rsa.pub
-echo
+echo " "
+echo "install this public key in your git server as a deploy key: "
+echo " "
+cat "/usr/share/jenkins/ssh/id_rsa.pub"
+echo " "
